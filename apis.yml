@@ -26,6 +26,8 @@ apis:
     description: >-
       The Glacier Bancorp API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/glacier-bancorp-inc
   - type: Website
     url: https://www.glacierbancorp.com
 maintainers:

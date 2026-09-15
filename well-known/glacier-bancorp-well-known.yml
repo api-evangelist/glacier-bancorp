@@ -1,0 +1,174 @@
+generated: '2026-09-14'
+method: probed
+source: live HTTPS probes of /.well-known/* on every host this record knows
+provider: Glacier Bancorp
+providerId: glacier-bancorp
+note: 'One real document was found: connect.glacierbank.com serves an OpenID Connect discovery document
+  for Glacier Bank''s Jack Henry Banno digital-banking tenant (issuer https://connect.glacierbank.com/a/consumer/api/v0/oidc).
+  Every other probed path on every other host returned 404, NXDOMAIN, or an Akamai Access Denied. api.glacierbancorp.com
+  and developer.glacierbancorp.com do not resolve at all — they were placeholder values in this record,
+  not hosts Glacier Bancorp operates.'
+hosts:
+- host: glacierbancorp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+- host: www.glacierbancorp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/openid-configuration
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/api-catalog
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/agent-card.json
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+  - path: /.well-known/agent.json
+    status: 403
+    content_type: text/html
+    note: Akamai edge returned Access Denied to our crawler; not evidence of absence
+- host: developer.glacierbancorp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/openid-configuration
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/api-catalog
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/agent-card.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/agent.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+- host: api.glacierbancorp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/openid-configuration
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/api-catalog
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/agent-card.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+  - path: /.well-known/agent.json
+    status: 0
+    note: host does not resolve (NXDOMAIN)
+- host: www.glacierbank.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: glacierbank.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+- host: connect.glacierbank.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: well-known/glacier-bancorp-openid-configuration.json
+    note: real document
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html

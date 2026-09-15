@@ -1,0 +1,106 @@
+generated: '2026-09-14'
+method: probed
+source: https://connect.glacierbank.com/.well-known/openid-configuration
+provider: Glacier Bancorp
+providerId: glacier-bancorp
+description: Standards conformance asserted strictly from what Glacier Bank's Banno tenant issuer says
+  about itself in its live OIDC discovery document. Nothing here is read off a marketing page.
+ownership: The discovery document is served on connect.glacierbank.com, a Glacier-controlled host; the
+  vocabulary it advertises is Jack Henry's Banno platform vocabulary. Conformance below is therefore a
+  property of Glacier Bancorp's DEPLOYMENT of that platform.
+domain_standard:
+  detected: false
+  sector: Banking / Financial Services
+  candidates_checked:
+  - FDX (Financial Data Exchange)
+  - FAPI 1.0/2.0
+  - ISO 20022
+  - Open Banking UK
+  note: No domain standard is declared by the contract. The tenant exposes a proprietary vendor scope
+    namespace; consumer-permissioned data sharing at this institution is reached through aggregators rather
+    than an FDX-conformant first-party surface. Reward-only check — recorded as absent, not as a failure.
+conformance:
+- id: oidc
+  name: OpenID Connect Core 1.0
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> issuer + authorization_endpoint
+    + token_endpoint + userinfo_endpoint + jwks_uri
+- id: oidc-discovery
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration returns HTTP 200 application/json
+    with a complete provider metadata document
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> grant_types_supported
+    = ['authorization_code','refresh_token','urn:ietf:params:oauth:grant-type:token-exchange']
+- id: rfc7636-pkce
+  name: PKCE (RFC 7636)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> code_challenge_methods_supported
+    = ['S256']
+- id: rfc9126-par
+  name: Pushed Authorization Requests (RFC 9126)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> pushed_authorization_request_endpoint
+    present
+- id: rfc9449-dpop
+  name: DPoP (RFC 9449)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> dpop_signing_alg_values_supported
+    present
+- id: rfc8693-token-exchange
+  name: OAuth 2.0 Token Exchange (RFC 8693)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> urn:ietf:params:oauth:grant-type:token-exchange
+    in grant_types_supported
+- id: rfc7009-revocation
+  name: OAuth 2.0 Token Revocation (RFC 7009)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> revocation_endpoint present
+- id: rfc7662-introspection
+  name: OAuth 2.0 Token Introspection (RFC 7662)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> introspection_endpoint
+    present
+- id: rfc7523-private-key-jwt
+  name: JWT client authentication (RFC 7523)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> token_endpoint_auth_methods_supported
+    includes 'private_key_jwt'
+- id: rfc9207-iss
+  name: Authorization Server Issuer Identification (RFC 9207)
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> authorization_response_iss_parameter_supported
+    = true
+- id: oidc-rp-logout
+  name: OIDC RP-Initiated Logout 1.0
+  conforms: true
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> end_session_endpoint present
+- id: rfc7517-jwks
+  name: JSON Web Key Set (RFC 7517)
+  conforms: true
+  evidence: https://connect.glacierbank.com/a/consumer/api/v0/oidc/jwks returns HTTP 200 application/jwk-set+json
+- id: rfc7591-dcr
+  name: Dynamic Client Registration (RFC 7591)
+  conforms: false
+  evidence: https://connect.glacierbank.com/.well-known/openid-configuration -> no registration_endpoint
+    advertised — clients are provisioned out of band
+- id: fapi
+  name: FAPI 1.0/2.0 Advanced
+  conforms: false
+  evidence: No FAPI profile is declared in the discovery document and no FAPI claim was found on any Glacier
+    property; PAR + DPoP + private_key_jwt are present but a profile declaration is not.
+- id: fdx
+  name: Financial Data Exchange (FDX) API
+  conforms: false
+  evidence: The tenant advertises a proprietary Jack Henry / Banno scope vocabulary (api.banno.com/consumer/auth/*),
+    not FDX resource scopes; no FDX endpoint or claim was located on any Glacier host.
+- id: rfc9457-problem-details
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: false
+  evidence: No Glacier-published contract exists to assert an error format against.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

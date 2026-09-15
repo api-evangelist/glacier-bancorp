@@ -27,40 +27,93 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/glacier-bancorp.png
 tags:
-  - Banking
-  - Financial-Services
+- Banking
+- Financial-Services
+- Digital-Banking
+- OpenID-Connect
+- Authentication
+- Treasury-Management
 tags_raw:
-  - Banking
-  - Financial Services
-description: >-
-  Glacier Bancorp is a major US corporation and Fortune 1000 company. The Glacier Bancorp API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+- Banking
+- Financial Services
+- Digital Banking
+- OpenID Connect
+- Authentication
+- Treasury Management
+description: 'Glacier Bancorp, Inc. (NYSE: GBCI) is a Kalispell, Montana bank holding company operating
+  Glacier Bank and its division banks across the western United States. It runs no developer program and
+  publishes no OpenAPI: the only machine-readable API surface it serves from its own hosts is the OpenID
+  Connect issuer for Glacier Bank''s Jack Henry Banno digital-banking tenant at connect.glacierbank.com,
+  which advertises 116 OAuth scopes covering accounts, transfers, bill pay, ACH batches, wire transfers,
+  positive pay and Zelle. Client credentials for that issuer are provisioned out of band, not self-service.'
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-14'
 specificationVersion: '0.23'
 apis:
-  - aid: glacier-bancorp:glacier-bancorp-api
-    name: Glacier Bancorp API
-    tags:
-      - Banking
-      - Financial-Services
-    tags_raw:
-      - Banking
-      - Financial Services
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.glacierbancorp.com
-    humanURL: https://developer.glacierbancorp.com
-    properties:
-      - url: https://developer.glacierbancorp.com/docs
-        type: Documentation
-    description: >-
-      The Glacier Bancorp API provides access to platform services and data for enterprise integration and automation.
+- aid: glacier-bancorp:glacier-bancorp-api
+  name: Glacier Bank Digital Banking OIDC (Banno tenant)
+  tags:
+  - Banking
+  - Digital-Banking
+  - OpenID-Connect
+  - Authentication
+  tags_raw:
+  - Banking
+  - Digital Banking
+  - OpenID Connect
+  - Authentication
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://connect.glacierbank.com/a/consumer/api/v0
+  humanURL: https://connect.glacierbank.com/
+  properties:
+  - url: https://connect.glacierbank.com/.well-known/openid-configuration
+    type: OpenIDConnect
+  - url: authentication/glacier-bancorp-authentication.yml
+    type: Authentication
+  - url: scopes/glacier-bancorp-scopes.yml
+    type: OAuthScopes
+  description: The OpenID Connect issuer Glacier Bank serves at connect.glacierbank.com for its Jack Henry
+    Banno Digital Toolkit tenant. Issuer https://connect.glacierbank.com/a/consumer/api/v0/oidc; the base
+    URL follows the documented Banno tenant pattern https://<institution-host>/a/consumer/api/v0 (https://jackhenry.dev/open-api-docs/consumer-api/overview/baseurl/).
+    The scope and claim vocabulary is Jack Henry's; the deployment and every endpoint host is Glacier's.
+    Placeholder hosts api.glacierbancorp.com and developer.glacierbancorp.com, previously recorded here,
+    do not resolve and were removed.
 common:
-  - type: DomainSecurity
-    url: security/glacier-bancorp-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/glacier-bancorp-inc
-  - type: Website
-    url: https://www.glacierbancorp.com
+- type: DomainSecurity
+  url: security/glacier-bancorp-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/glacier-bancorp-inc
+- type: Website
+  url: https://www.glacierbancorp.com
+- type: Authentication
+  url: authentication/glacier-bancorp-authentication.yml
+- type: OAuthScopes
+  url: scopes/glacier-bancorp-scopes.yml
+- type: Conformance
+  url: conformance/glacier-bancorp-conformance.yml
+- type: WellKnown
+  url: well-known/glacier-bancorp-well-known.yml
+- type: LLMsTxt
+  url: llms/glacier-bancorp-llms.txt
+- type: Plans
+  url: plans/glacier-bancorp-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/glacier-bancorp-rate-limits.yml
+- type: Login
+  url: https://connect.glacierbank.com/
+- type: SignUp
+  url: https://www.glacierbank.com/personal/open-an-account
+- type: Support
+  url: https://www.glacierbank.com/contact
+- type: PrivacyPolicy
+  url: https://www.glacierbank.com/privacy-policy
+- type: TermsOfService
+  url: https://www.glacierbank.com/terms-and-conditions
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-14'
+  status: enriched
+  artifacts_added: 6
+  pass: local-v3

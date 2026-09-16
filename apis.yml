@@ -29,10 +29,10 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/glacier-ba
 tags:
 - Banking
 - Financial-Services
-- Digital-Banking
-- OpenID-Connect
+- Digital Banking
+- OpenID Connect
 - Authentication
-- Treasury-Management
+- Treasury Management
 tags_raw:
 - Banking
 - Financial Services
@@ -54,8 +54,8 @@ apis:
   name: Glacier Bank Digital Banking OIDC (Banno tenant)
   tags:
   - Banking
-  - Digital-Banking
-  - OpenID-Connect
+  - Digital Banking
+  - OpenID Connect
   - Authentication
   tags_raw:
   - Banking

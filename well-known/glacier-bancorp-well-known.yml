@@ -155,7 +155,7 @@ hosts:
   - path: /.well-known/openid-configuration
     status: 200
     content_type: application/json
-    file: well-known/glacier-bancorp-openid-configuration.json
+    file: glacier-bancorp-openid-configuration.json
     note: real document
   - path: /.well-known/oauth-authorization-server
     status: 404

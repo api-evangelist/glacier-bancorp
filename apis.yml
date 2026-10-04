@@ -28,18 +28,17 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/glacier-bancorp.png
 tags:
 - Banking
-- Financial-Services
+- Financial Services
 - Digital Banking
-- OpenID Connect
 - Authentication
 - Treasury Management
 tags_raw:
 - Banking
 - Financial Services
 - Digital Banking
-- OpenID Connect
 - Authentication
 - Treasury Management
+- Financial-Services
 description: 'Glacier Bancorp, Inc. (NYSE: GBCI) is a Kalispell, Montana bank holding company operating
   Glacier Bank and its division banks across the western United States. It runs no developer program and
   publishes no OpenAPI: the only machine-readable API surface it serves from its own hosts is the OpenID
@@ -117,3 +116,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 6
   pass: local-v3
+x-tags-removed:
+- OpenID Connect

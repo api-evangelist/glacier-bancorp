@@ -78,6 +78,8 @@ apis:
     Placeholder hosts api.glacierbancorp.com and developer.glacierbancorp.com, previously recorded here,
     do not resolve and were removed.
 common:
+- type: FinOps
+  url: finops/glacier-bancorp-finops.yml
 - type: DomainSecurity
   url: security/glacier-bancorp-domain-security.yml
 - type: LinkedIn
